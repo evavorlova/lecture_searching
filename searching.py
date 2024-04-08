@@ -1,4 +1,5 @@
 import os
+import json
 
 # get current working directory path
 cwd_path = os.getcwd()
@@ -16,6 +17,21 @@ def read_data(file_name, field):
 
 def main():
     pass
+
+def read_data(sequential,field):
+    with open("sequential.json", mode="r") as file:
+        allowed_keys = json.load(file)["allowed_keys"]
+    if field not in allowed_keys:
+        return None
+
+    with open(file_name,"r") as file:
+        data = json.load(file)
+    return data.get(field, None)
+
+def main():
+    sequential_data = read_data("sequential.json","unordered_numbers")
+    print("Sequential Data:", sequential_data)
+
 
 
 if __name__ == '__main__':
