@@ -32,7 +32,17 @@ def main():
     sequential_data = read_data("sequential.json","unordered_numbers")
     print("Sequential Data:", sequential_data)
 
+def linear_search(sequence,target):
+    positions = []
+    count = 0
+    for i, num in enumerate(sequence):
+        if num == target:
+            positions.append(i)
+            count += 1
 
+    return {"positions": positions, "count": count}
+
+def main():
 
 if __name__ == '__main__':
     main()
